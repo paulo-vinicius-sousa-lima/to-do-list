@@ -16,13 +16,13 @@
     background-color: white;
 }
 
-h1{
+h1 {
     font-family: 'Satisfy', cursive;
     font-size: 50px;
     text-align: center;
 }
 
-ul{
+ul {
     list-style: none;
     list-style-type: none;
     padding: 0;
@@ -36,10 +36,28 @@ body {
 
 button {
     background-color: yellow;
-    border-color: yellow;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+button:hover {
+    background-color: rgb(245, 245, 0);
+}
+
+button:active {
+    background-color: yellow;
 }
 
 input {
-    border-radius: 0;
+    border-radius: 5px;
     outline: none;
+    border: 1px solid black;
+}
+
+input:hover {
+    background-color: gainsboro;
+}
+
+input:active{
+    background-color: white;
 }
