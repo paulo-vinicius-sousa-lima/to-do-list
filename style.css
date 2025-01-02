@@ -76,12 +76,42 @@ input:active {
     background-color: white;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
     .paper {
         border: 1px solid black;
         border-radius: 30px;
         padding: 20px;
         padding-bottom: 30px;
         margin: 100px 500px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .paper {
+        border: 1px solid black;
+        border-radius: 30px;
+        padding: 20px;
+        padding-bottom: 30px;
+        margin: 75px 300px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .paper {
+        border: 1px solid black;
+        border-radius: 20px;
+        padding: 15px;
+        padding-bottom: 25px;
+        margin: 50px 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .paper {
+        border: 1px solid black;
+        border-radius: 15px;
+        padding: 10px;
+        padding-bottom: 20px;
+        margin: 20px 50px;
     }
 }
