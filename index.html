@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <title>To Do List</title>
 </head>
@@ -16,27 +15,21 @@
         <div class="container">
             <form>
                 <div class="open">
-                    <input type="text" class="box">
-                    <button type="submit">+</button>
+                    <input type="text" class="box" id="input">
+                    <button type="submit" onclick="seletorDeTexto()">+</button>
                 </div>
                 <ul>
                     <li class="li1">
-                        <input type="checkbox">
-                        <span> a</span>
-
                     </li>
                     <li class="li2">
-                        <input type="checkbox">
-                        <span> b</span>
                     </li>
                     <li class="li1">
-                        <input type="checkbox">
-                        <span> c</span>
                     </li>
                 </ul>
             </form>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
