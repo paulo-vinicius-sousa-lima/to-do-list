@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
-    <title>To Do List</title>
+    <title>Minha Lista de Tarefas</title>
 </head>
-
 <body>
     <div class="paper">
-        <h1>To Do List</h1>
-        <div class="container">
-            <form>
-                <div class="open">
-                    <input type="text" class="box" id="input">
-                    <button type="submit" onclick="seletorDeTexto()">+</button>
-                </div>
-                <ul>
-                    <li class="li1">
-                    </li>
-                    <li class="li2">
-                    </li>
-                    <li class="li1">
-                    </li>
-                </ul>
+        <h1>Minha Lista de Tarefas</h1>
+        <div class="task-input-section">
+            <form id="task-form">
+                <input type="text" class="task-box" id="task-input" placeholder="Adicione uma nova tarefa...">
+                <button type="submit" id="add-task-btn">+</button>
             </form>
         </div>
+        <ul id="task-list">
+            </ul>
     </div>
     <script src="script.js"></script>
 </body>
-
 </html>

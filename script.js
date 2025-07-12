@@ -1,42 +1,42 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const input = document.getElementById("input");
-    const form = document.querySelector("form");
-    const ul = document.querySelector("ul");
-    let alternarClasse = true;
+    const taskInput = document.getElementById("task-input");
+    const taskForm = document.getElementById("task-form");
+    const taskList = document.getElementById("task-list");
 
-    // Adiciona nova tarefa
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        adicionarTarefa();
+    // Adiciona uma nova tarefa ao submeter o formulário
+    taskForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Evita o recarregamento da página
+        addTask();
     });
 
-    function adicionarTarefa() {
-        if (input.value.trim() !== "") {
-            const li = document.createElement("li");
-            li.classList.add(alternarClasse ? "li1" : "li2");
-            alternarClasse = !alternarClasse;
+    // Função para adicionar uma nova tarefa
+    function addTask() {
+        const taskText = taskInput.value.trim(); // Pega o valor e remove espaços em branco
+
+        if (taskText !== "") { // Verifica se o input não está vazio
+            const listItem = document.createElement("li");
 
             const checkbox = document.createElement("input");
             checkbox.type = "checkbox";
             checkbox.addEventListener("change", function () {
+                // Remove a tarefa quando o checkbox é marcado
                 if (checkbox.checked) {
-                    li.remove();
+                    listItem.remove();
                 }
             });
 
             const span = document.createElement("span");
-            span.textContent = input.value;
+            span.textContent = taskText;
 
-            li.appendChild(checkbox);
-            li.appendChild(span);
-            ul.appendChild(li);
+            listItem.appendChild(checkbox);
+            listItem.appendChild(span);
+            taskList.appendChild(listItem);
 
-            input.value = "";
+            taskInput.value = ""; // Limpa o input após adicionar a tarefa
+            taskInput.focus(); // Coloca o foco de volta no input
         }
     }
 
-    // Seleciona o texto do input ao clicar no botão
-    window.seletorDeTexto = function () {
-        input.select();
-    };
+    // Opcional: Ações extras ao carregar a página, se necessário
+    // Por exemplo, você pode querer carregar tarefas salvas aqui.
 });

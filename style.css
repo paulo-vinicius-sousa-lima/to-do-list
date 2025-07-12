@@ -1,125 +1,259 @@
-.container {
-    width: 100%;
-    height: 100%;
+:root {
+    /* Cores atualizadas para um visual mais suave e moderno */
+    --primary-bg-color: #fcfcfc; /* Branco suave para o papel */
+    --secondary-bg-color: #eef2f6; /* Azul muito claro para o fundo do body */
+    --accent-color-light: #a9e0f0; /* Azul claro para botões e detalhes */
+    --accent-color-dark: #6fa8c7; /* Azul um pouco mais escuro para hover */
+    --text-color-primary: #333d42; /* Cinza escuro para texto principal */
+    --text-color-secondary: #6b7a8a; /* Cinza médio para placeholders */
+    --border-color-light: #dbe4eb; /* Borda clara para elementos */
+    --border-color-dark: #a9bccb; /* Borda mais escura ao focar */
+    --alt-row-color: #f7f7f7; /* Cor para linhas alternadas, quase branco */
+
+    /* Fontes */
+    --font-satisfy: 'Satisfy', cursive;
+    --font-body: 'Poppins', sans-serif; /* Uma fonte sans-serif moderna e legível */
 }
 
-.open {
+/* Importação da nova fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: var(--font-body);
+    background-color: var(--secondary-bg-color);
     display: flex;
-    gap: 1px;
-    width: 100%;
-}
-
-.box {
-    width: 100%;
-}
-
-.li1 {
-    background-color: gainsboro;
-}
-
-.li2 {
-    background-color: white;
+    justify-content: center;
+    align-items: center; /* Centraliza verticalmente também */
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita scroll horizontal */
+    background: linear-gradient(135deg, #f0f4f8, #e5e9ef); /* Gradiente sutil no fundo */
 }
 
 .paper {
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 30px;
-    padding: 20px;
-    padding-bottom: 30px;
-    margin: 10%;
-
+    background-color: var(--primary-bg-color);
+    border: 1px solid var(--border-color-light);
+    border-radius: 15px; /* Bordas mais arredondadas */
+    padding: 30px 40px; /* Mais padding */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Sombra mais pronunciada e suave */
+    width: 100%;
+    max-width: 550px; /* Um pouco mais estreito para um visual mais compacto */
+    margin: 20px; /* Garante margem em telas menores */
+    position: relative; /* Para possíveis elementos decorativos */
+    transition: all 0.3s ease-in-out; /* Transição suave para responsividade */
 }
 
 h1 {
-    font-family: 'Satisfy', cursive;
-    font-size: 50px;
+    font-family: var(--font-satisfy);
+    font-size: 3.8rem; /* Aumenta o tamanho do título */
     text-align: center;
+    color: var(--text-color-primary);
+    margin-bottom: 30px;
+    line-height: 1.1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); /* Sutil sombra no texto */
 }
 
-ul {
+.task-input-section {
+    display: flex;
+    gap: 12px; /* Aumenta o espaçamento */
+    margin-bottom: 25px;
+    align-items: center; /* Alinha verticalmente */
+}
+
+#task-form {
+    display: flex;
+    width: 100%;
+    gap: 12px;
+}
+
+.task-box {
+    flex-grow: 1;
+    padding: 14px 18px; /* Mais padding para o input */
+    border-radius: 10px; /* Bordas mais arredondadas */
+    border: 1px solid var(--border-color-light);
+    outline: none;
+    font-size: 1.05rem;
+    color: var(--text-color-primary);
+    background-color: var(--primary-bg-color);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra interna sutil */
+    transition: all 0.2s ease;
+}
+
+.task-box::placeholder {
+    color: var(--text-color-secondary);
+    opacity: 0.8;
+}
+
+.task-box:focus {
+    border-color: var(--accent-color-dark);
+    background-color: #fdfdfd;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(169, 224, 240, 0.3); /* Anel de foco mais suave */
+}
+
+#add-task-btn {
+    background-color: var(--accent-color-light);
+    border-radius: 10px; /* Bordas arredondadas */
+    border: none; /* Remove a borda padrão */
+    padding: 14px 22px;
+    font-size: 1.6rem;
+    font-weight: 600; /* Um pouco mais encorpado */
+    color: var(--primary-bg-color); /* Texto branco */
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para o botão */
+    line-height: 1; /* Garante alinhamento */
+}
+
+#add-task-btn:hover {
+    background-color: var(--accent-color-dark);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra maior no hover */
+}
+
+#add-task-btn:active {
+    background-color: var(--accent-color-dark);
+    transform: translateY(2px); /* Efeito de clique mais pronunciado */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra menor no active */
+}
+
+#task-list {
     list-style: none;
-    list-style-type: none;
     padding: 0;
     margin: 0;
-    margin-top: 15px;
 }
 
-body {
-    margin: 10px;
+#task-list li {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px; /* Mais padding para os itens da lista */
+    border-radius: 10px; /* Bordas arredondadas */
+    margin-bottom: 10px; /* Mais espaço entre as tarefas */
+    word-break: break-word;
+    min-height: 25px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil nos itens */
 }
 
-button {
-    background-color: yellow;
-    border-radius: 5px;
-    border: 1px solid rgb(0, 0, 0);
+#task-list li:nth-child(even) {
+    background-color: var(--alt-row-color);
 }
 
-button:hover {
-    background-color: rgb(245, 245, 0);
+#task-list li:nth-child(odd) {
+    background-color: var(--primary-bg-color);
 }
 
-button:active {
-    background-color: rgb(217, 217, 0);
+#task-list li:last-child {
+    margin-bottom: 0; /* Remove a margem do último item */
 }
 
-input {
-    border-radius: 5px;
-    outline: none;
-    border: 1px solid black;
+#task-list li input[type="checkbox"] {
+    margin-right: 18px; /* Mais espaço para o checkbox */
+    min-width: 22px; /* Aumenta o tamanho do checkbox */
+    min-height: 22px;
+    cursor: pointer;
+    appearance: none; /* Esconde o checkbox padrão */
+    -webkit-appearance: none;
+    background-color: #fff;
+    border: 2px solid var(--border-color-light);
+    border-radius: 6px; /* Borda arredondada para o checkbox */
+    position: relative;
+    transition: all 0.2s ease;
 }
 
-input:hover {
-    background-color: gainsboro;
+#task-list li input[type="checkbox"]:checked {
+    background-color: var(--accent-color-light);
+    border-color: var(--accent-color-light);
 }
 
-input:active {
-    background-color: white;
+#task-list li input[type="checkbox"]:checked::after {
+    content: '✔'; /* Adiciona um ícone de "check" */
+    font-size: 1.2rem;
+    color: var(--primary-bg-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
+#task-list li span {
+    flex-grow: 1;
+    font-size: 1.1rem;
+    color: var(--text-color-primary);
+    line-height: 1.4; /* Melhora a legibilidade de textos longos */
+}
 
-
-
-@media (min-width: 1200px) {
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
     .paper {
-        background-color: white;
-        border: 1px solid black;
-        border-radius: 30px;
-        padding: 20px;
-        padding-bottom: 30px;
-        margin: 100px 500px;
+        margin: 15px;
+        border-radius: 15px;
+        padding: 25px 30px;
     }
-}
 
-@media (min-width: 768px) and (max-width: 1199px) {
-    .paper {
-        background-color: white;
-        border: 1px solid black;
-        border-radius: 30px;
-        padding: 20px;
-        padding-bottom: 30px;
-        margin: 75px 300px;
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 25px;
     }
-}
 
-@media (min-width: 481px) and (max-width: 767px) {
-    .paper {
-        background-color: white;
-        border: 1px solid black;
-        border-radius: 20px;
-        padding: 15px;
-        padding-bottom: 25px;
-        margin: 50px 100px;
+    .task-box, #add-task-btn {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+    }
+
+    #add-task-btn {
+        font-size: 1.4rem;
+    }
+
+    #task-list li {
+        padding: 12px 15px;
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .paper {
-        background-color: white;
-        border: 1px solid black;
-        border-radius: 15px;
+    body {
         padding: 10px;
-        padding-bottom: 20px;
-        margin: 20px 50px;
+    }
+
+    .paper {
+        margin: 10px;
+        border-radius: 12px;
+        padding: 20px 25px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .task-input-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #task-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #add-task-btn {
+        width: 100%;
+        padding: 14px 20px;
+    }
+
+    .task-box {
+        width: calc(100% - 2px); /* Ajuste para o padding */
+        padding: 14px 15px;
+    }
+
+    #task-list li {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    #task-list li input[type="checkbox"] {
+        margin-right: 12px;
+        min-width: 20px;
+        min-height: 20px;
     }
 }
